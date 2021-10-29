@@ -1,5 +1,5 @@
 #include <thread>
-#include <hardware/rga.h>
+//#include <hardware/rga.h>
 #define virtual vir
 #include <drm.h>
 #include <drm_mode.h>

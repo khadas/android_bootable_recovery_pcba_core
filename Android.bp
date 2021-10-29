@@ -25,6 +25,9 @@ cc_library_static {
         "audiodev_test/alsa_mixer.c",
         "audiodev_test/tinyalsa/mixer.c",
         "audiodev_test/tinyalsa/pcm.c",
+	"audiodev_test/tinyalsa/snd_utils.c",
+	"audiodev_test/tinyalsa/pcm_hw.c",
+	"audiodev_test/tinyalsa/pcm_plugin.c",
     ],
 
     local_include_dirs: ["audiodev_test/tinyalsa/include"],
@@ -36,7 +39,7 @@ cc_library_static {
         "libcutils",
         "libfs_mgr",
         "liblog",
-        "libziparchive", 
+        "libziparchive",
     ],
     cflags: [
         "-Wno-error",
@@ -70,6 +73,9 @@ cc_binary {
         "audiodev_test/alsa_mixer.c",
         "audiodev_test/tinyalsa/mixer.c",
         "audiodev_test/tinyalsa/pcm.c",
+	"audiodev_test/tinyalsa/snd_utils.c",
+	"audiodev_test/tinyalsa/pcm_hw.c",
+	"audiodev_test/tinyalsa/pcm_plugin.c",
     ],
     local_include_dirs: ["audiodev_test/tinyalsa/include"],
     shared_libs: [
