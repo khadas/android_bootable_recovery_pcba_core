@@ -218,8 +218,10 @@ void* battery_test(void *argv, display_callback *hook){
 
     result = getBatteryStatus(Statusbuf);
     memset(ACOnline, 0, sizeof(ACOnline));
-    ret = readFromFile(gPaths.acOnlinePath, ACOnline, sizeof(ACOnline));
-    if (ret < 0) goto err;
+    if (gPaths.acOnlinePath) {
+        ret = readFromFile(gPaths.acOnlinePath, ACOnline, sizeof(ACOnline));
+        if (ret < 0) goto err;
+    }
 
     memset(USBOnline, 0, sizeof(USBOnline));
     ret = readFromFile(gPaths.usbOnlinePath,
@@ -232,9 +234,10 @@ void* battery_test(void *argv, display_callback *hook){
     for (;;)
     {
         memset(ACOnline, 0, sizeof(ACOnline));
-        ret = readFromFile(gPaths.acOnlinePath,
-                           ACOnline, sizeof(ACOnline));
-        if (ret < 0) goto err;
+        if (gPaths.acOnlinePath) {
+            ret = readFromFile(gPaths.acOnlinePath, ACOnline, sizeof(ACOnline));
+            if (ret < 0) goto err;
+        }
 
         memset(USBOnline, 0, sizeof(USBOnline));
         ret = readFromFile(gPaths.usbOnlinePath,
